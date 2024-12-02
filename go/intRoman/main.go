@@ -6,24 +6,15 @@ import (
 )
 
 func intToRoman(num int) string {
-	decimal := []int{1000, 500, 100, 50, 10, 5, 1}
+	decimal := []int{1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1}
+	roman := []string{"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"}
 	result := ""
-	roman := []string{"M", "D", "C", "L", "X", "V", "I"}
-	for i, v := range decimal {
-		n := num / v
-		if n > 0 && n < 4 && num != 9 {
-			result += strings.Repeat(roman[i], n)
-			num -= n * v
-		} else if num == 9 {
-			result += "IX"
-			num -= num
-		} else if n > 3 {
-			result += roman[i] + roman[i-1]
-			num -= decimal[i-1] - decimal[i]
-		}
+	for i := 0; i < len(decimal) && num > 0; i++ {
+		n := num / decimal[i]
+		result += strings.Repeat(roman[i], n)
+		num -= n * decimal[i]
 	}
 	return result
-
 }
 
 func main() {
