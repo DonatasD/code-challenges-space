@@ -36,8 +36,6 @@ func main() {
 	inputs := [][]int{{-1, 0, 1, 2, -1, -4}, {0, 1, 1}, {0, 0, 0}, {1, -1, -1, 0}}
 	outputs := [][][]int{{{-1, -1, 2}, {-1, 0, 1}}, {}, {{0, 0, 0}}, {{-1, 0, 1}}}
 	for i := 0; i < len(inputs); i++ {
-		//for i, v := range inputs {
-
 		result := threeSum(inputs[i])
 		if reflect.DeepEqual(result, outputs[i]) {
 			fmt.Printf("Testcase %v passed\n", i)
