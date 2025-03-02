@@ -1,5 +1,10 @@
 package main
 
+import (
+	"fmt"
+	"reflect"
+)
+
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -36,9 +41,17 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return &ListNode{sum, addTwoNumbers(next1, next2)}
 }
 
-var a = &ListNode{9, &ListNode{9, &ListNode{9, &ListNode{9, &ListNode{9, &ListNode{9, nil}}}}}}
-var b = &ListNode{9, &ListNode{9, &ListNode{9, nil}}}
-
 func main() {
-	println(addTwoNumbers(a, b))
+	inputs := []*ListNode{{9, &ListNode{9, &ListNode{9, &ListNode{9, &ListNode{9, &ListNode{9, nil}}}}}}}
+	params := []*ListNode{{9, &ListNode{9, &ListNode{9, nil}}}}
+	outputs := []*ListNode{{8, &ListNode{9, &ListNode{9, &ListNode{0, &ListNode{0, &ListNode{0, &ListNode{1, nil}}}}}}}}
+	for i := 0; i < len(inputs); i++ {
+
+		result := addTwoNumbers(inputs[i], params[i])
+		if reflect.DeepEqual(result, outputs[i]) {
+			fmt.Printf("Testcase %v passed\n", i)
+		} else {
+			fmt.Printf("failed %v: %v expected: %v\n", i, result, outputs[i])
+		}
+	}
 }
