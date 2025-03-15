@@ -2,4 +2,5 @@
 
 Personal workspace for code challenges on various platforms:
 
-codeWars: https://www.codewars.com/users/DonatasD
+* [Codewars](https://www.codewars.com/users/DonatasD)
+* [Leetcode](https://leetcode.com/u/donatasdaubar/)
