@@ -6,8 +6,8 @@ import (
 )
 
 func permuteUnique(nums []int) [][]int {
-	res := [][]int{}
-	perm := []int{}
+	var res [][]int
+	var perm []int
 	countMap := map[int]int{}
 	for _, n := range nums {
 		countMap[n] += 1
